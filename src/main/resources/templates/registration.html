@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Register user </title>
+    <link type="text/css" rel="stylesheet" href="css/registration-style.css">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+ <!--
+ <div th:if="${param.error}">
+     Invalid username and password.
+ </div>
+ <div th:if="${param.logout}">
+     You have been logged out.
+ </div> -->
+
+<div class="container">
+<form th:action="@{/register}" th:object="${user}" method="post">
+
+        <h1>Register</h1>
+        <p style="color: red">Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="firstName"> <b> First Name:</b> </label>
+        <input type="text" placeholder="First Name" name="firstName" required>
+
+        <label for="lastName"> <b> Last Name:</b> </label>
+        <input type="text" placeholder="Last Name" name="lastName" required>
+
+        <label for="birthday"> <b> Birthday: </b> </label>
+        <input type="date" placeholder="Birthday" name="birthday" required>
+
+        <label for="email"> <b> Email: </b> </label>
+        <input type="email" placeholder="Email" name="email" required>
+
+        <label for="password"> <b> Password: </b> </label>
+        <input type="password" placeholder="Password" name="password" required>
+
+        <button type="submit" class="registerbtn">Register</button>
+
+    <!-- th:if="${param.login}"-->
+    <div>
+        <!--  <h1 th:inline="text"> User "${user}" [[${#httpServletRequest.remoteUser}]]! has been registered! </h1>
+        <p th:text="'Hello, ' + ${user.firstName} + '!'"/> -->
+    </div>
+
+    <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div>
+
+
+
+</form>
+
+</div>
+
+</body>
+</html>
